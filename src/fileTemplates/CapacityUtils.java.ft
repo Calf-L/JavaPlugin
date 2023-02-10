@@ -1,0 +1,35 @@
+#if(${PACKAGE_NAME}!="")
+package ${PACKAGE_NAME};
+#end
+
+
+public class CapacityUtils {
+
+    public static Map<String,Object> getDiskInfo() throws IOException {
+        Map<String,Object> map=  new HashMap<>();
+        DecimalFormat df = new DecimalFormat("#.00");
+        File file =new File(System.getProperty("user.dir"));
+
+// 获取总容�?
+        long totalSpace = file.getTotalSpace();
+// 获取剩余容量
+        long freeSpace = file.getUsableSpace();
+// 获取已经使用的容�?
+        long usableSpace = totalSpace - freeSpace;
+// 获取使用�?
+        float useRate = (float)((freeSpace * 1.0 / totalSpace) * 100);
+
+        map.put("totalSpace",transformation(totalSpace));
+        map.put("freeSpace",transformation(freeSpace));
+        map.put("usableSpace",transformation(usableSpace));
+        map.put("useRate",Double.parseDouble(df.format(useRate)) + "%");
+
+        return map;
+
+    }
+
+    public static String transformation(long size){
+        return size / 1024 / 1024 / 1024 + "GB";
+    }
+
+}

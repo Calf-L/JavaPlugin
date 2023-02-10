@@ -1,0 +1,15 @@
+#if(${PACKAGE_NAME}!="")
+package ${PACKAGE_NAME};
+#end
+
+
+
+
+public class StringUtils {
+    public static boolean isEmpty(String s) {
+        return s==null|| s.getBytes().length==0;
+
+    }
+
+}
+

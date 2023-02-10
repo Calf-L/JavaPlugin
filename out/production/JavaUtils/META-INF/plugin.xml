@@ -1,0 +1,41 @@
+<idea-plugin>
+  <id>JavaUtils</id>
+  <name>JavaUtils</name>
+  <version>1.0</version>
+  <vendor email="747479902@qq.com" url="http://www.xlaxz.com">Calf</vendor>
+
+  <description><![CDATA[
+    A plugin for android developer, with the plugin you cangenerate some useful utils quickly
+    ]]></description>
+
+  <change-notes><![CDATA[
+    Including network request, MD5 encryption, mail, JWT and other tool classes...
+    ]]>
+  </change-notes>
+
+  <!-- please see https://plugins.jetbrains.com/docs/intellij/build-number-ranges.html for description -->
+  <idea-version since-build="173.0"/>
+
+  <!-- please see https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html
+       on how to target different products -->
+  <depends>com.intellij.modules.platform</depends>
+
+
+  <depends>com.intellij.modules.lang</depends>
+  <depends>com.intellij.modules.java</depends>
+  <depends>com.intellij.modules.xml</depends>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <!-- Add your extensions here -->
+  </extensions>
+
+  <actions>
+
+    <!-- Add your actions here -->
+    <action id="FirstPlugin" class="action.MainAction" text="BuildToolClass" description="easy to coding">
+      <add-to-group group-id="ToolsMenu" anchor="first"/>
+      <keyboard-shortcut keymap="$default" first-keystroke="ctrl K"/>
+    </action>
+  </actions>
+
+</idea-plugin>
